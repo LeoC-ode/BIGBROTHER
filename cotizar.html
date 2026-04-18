@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cotización y Cita | BIG BROTHER Import & Detailing</title>
+<title>Cotización | BIG BROTHER Import & Detailing</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -25,140 +25,155 @@
   }
 </script>
 <style>
-  body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; min-height: max(884px, 100dvh); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; min-height: 100dvh; overflow-x: hidden; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .logo-box { border: 2px solid #fff; padding: 4px 8px; display: inline-block; line-height: 1; }
-  .logo-big { color: #FFAA00; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.05em; display: block; }
-  .logo-brother { color: #fff; font-weight: 900; font-size: 0.85rem; letter-spacing: -0.03em; display: block; }
-  .logo-tagline { color: #9ca3af; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.05em; margin-top: 2px; }
-  .yellow-btn { background: #FFAA00; color: #000; font-weight: 800; }
+  .logo-box { border: 2px solid #fff; padding: 3px 7px; display: inline-block; line-height: 1; }
+  .logo-big { color: #FFAA00; font-weight: 900; font-size: 1.3rem; letter-spacing: -0.05em; display: block; }
+  .logo-brother { color: #fff; font-weight: 900; font-size: 0.8rem; letter-spacing: -0.03em; display: block; }
+  .yellow-btn { background: #FFAA00; color: #000; font-weight: 800; transition: background 0.2s; }
   .yellow-btn:hover { background: #e69900; }
+  .outline-btn { border: 2px solid #FFAA00; color: #FFAA00; font-weight: 700; transition: all 0.2s; }
+  .outline-btn:hover { background: #FFAA00; color: #000; }
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
   input, select, textarea {
     background: #1c1c1c !important;
     border: 1px solid #333 !important;
     color: #fff !important;
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s;
   }
   input::placeholder, textarea::placeholder { color: #6b7280; }
-  input:focus, select:focus, textarea:focus {
-    outline: none !important;
-    border-color: #FFAA00 !important;
-    box-shadow: 0 0 0 2px rgba(255,170,0,0.15) !important;
-  }
-  select option { background: #1c1c1c; color: #fff; }
+  input:focus, select:focus, textarea:focus { border-color: #FFAA00 !important; box-shadow: 0 0 0 2px rgba(255,170,0,0.15) !important; }
+  select option { background: #1c1c1c; }
 </style>
 </head>
 <body>
 
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-brand-black/90 backdrop-blur-lg border-b border-brand-border">
-  <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
+<header class="fixed top-0 w-full z-50 bg-brand-black/95 backdrop-blur-lg border-b border-brand-border">
+  <div class="flex justify-between items-center w-full px-4 md:px-6 py-3 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="flex items-center gap-2 no-underline">
       <div class="logo-box">
         <span class="logo-big">BIG</span>
         <span class="logo-brother">BROTHER</span>
       </div>
-      <span class="logo-tagline hidden sm:block">Import & Detailing</span>
+      <span class="text-brand-silver text-[9px] font-semibold tracking-widest hidden sm:block">Import & Detailing</span>
     </a>
     <nav class="hidden md:flex items-center gap-6">
       <a href="index.html" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Inicio</a>
       <a href="catalog.html" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Catálogo</a>
       <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Financiamiento</a>
-      <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Vende tu Auto</a>
       <a href="cotizar.html" class="text-brand-yellow font-bold text-sm border-b-2 border-brand-yellow pb-0.5">Contacto</a>
     </nav>
-    <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-white">search</span>
+    <div class="flex items-center gap-3">
+      <a href="cotizar.html" class="hidden md:block yellow-btn px-5 py-2 rounded-full text-sm">Cotizar</a>
+      <button class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-4 h-0.5 bg-brand-yellow"></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="flex-col bg-brand-dark border-t border-brand-border px-4 py-4 gap-1 md:hidden">
+    <a href="index.html" class="block px-4 py-3 text-brand-silver font-medium text-sm rounded-lg hover:bg-brand-card">Inicio</a>
+    <a href="catalog.html" class="block px-4 py-3 text-brand-silver font-medium text-sm rounded-lg hover:bg-brand-card">Catálogo</a>
+    <a href="#" class="block px-4 py-3 text-brand-silver font-medium text-sm rounded-lg hover:bg-brand-card">Financiamiento</a>
+    <a href="cotizar.html" class="block px-4 py-3 text-brand-yellow font-bold text-sm rounded-lg bg-brand-yellow/10">Contacto</a>
   </div>
 </header>
 
-<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<main class="pt-20 pb-28 px-4 md:px-6 max-w-7xl mx-auto">
 
-    <!-- Columna Izquierda -->
-    <div class="lg:col-span-5 flex flex-col gap-8">
-      <div class="space-y-4">
-        <span class="text-brand-yellow font-bold tracking-widest uppercase text-xs">Experiencia Premium</span>
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+
+    <!-- Columna izquierda — se muestra arriba en móvil -->
+    <div class="lg:col-span-5 flex flex-col gap-6">
+      <div>
+        <span class="text-brand-yellow font-bold tracking-widest uppercase text-xs block mb-2">Experiencia Premium</span>
+        <h1 class="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-3">
           El Camino a Tu<br/><span class="text-brand-yellow">Próximo Auto.</span>
         </h1>
-        <p class="text-brand-silver text-lg max-w-md leading-relaxed">
-          Solicita una cotización personalizada o agenda una visita privada. Nuestro equipo de Big Brother está listo para acompañarte en cada paso.
+        <p class="text-brand-silver text-sm md:text-base leading-relaxed max-w-md">
+          Solicita una cotización personalizada o agenda una visita. Nuestro equipo de Big Brother está listo para acompañarte.
         </p>
       </div>
 
-      <!-- Imagen con overlay -->
-      <div class="relative h-[380px] rounded-xl overflow-hidden group border border-brand-border">
-        <img alt="Vehículo de lujo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/img17.jpeg"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-transparent"></div>
-        <!-- Logo sobre imagen -->
-        <div class="absolute top-6 left-6">
-          <div class="border-2 border-white p-2 bg-black/50 backdrop-blur-sm inline-block">
-            <div class="text-[#FFAA00] font-black text-2xl leading-none tracking-tighter">BIG</div>
-            <div class="text-white font-black text-sm leading-none tracking-tighter">BROTHER</div>
+      <!-- Imagen — oculta en móvil pequeño para no ocupar tanto espacio -->
+      <div class="relative rounded-xl overflow-hidden group border border-brand-border hidden sm:block">
+        <img alt="Vehículo de lujo" class="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105" src="images/img17.jpeg"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent"></div>
+        <div class="absolute top-4 left-4">
+          <div class="border-2 border-white p-1.5 bg-black/50 backdrop-blur-sm inline-block">
+            <div class="text-[#FFAA00] font-black text-xl leading-none tracking-tighter">BIG</div>
+            <div class="text-white font-black text-xs leading-none tracking-tighter">BROTHER</div>
           </div>
         </div>
-        <div class="absolute bottom-6 left-6 text-white">
-          <p class="text-xs font-medium opacity-70 uppercase tracking-widest">Import & Detailing</p>
-          <h3 class="text-xl font-black text-brand-yellow">Tu próximo auto te espera</h3>
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white/70 text-xs uppercase tracking-widest">Import & Detailing</p>
+          <h3 class="text-lg font-black text-brand-yellow">Tu próximo auto te espera</h3>
         </div>
       </div>
 
-      <!-- Trust Badge -->
-      <div class="bg-brand-card p-6 rounded-xl flex items-start gap-4 border border-brand-border">
-        <div class="bg-brand-yellow/10 border border-brand-yellow p-3 rounded-xl shrink-0">
-          <span class="material-symbols-outlined text-brand-yellow">verified_user</span>
+      <!-- Trust badge -->
+      <div class="bg-brand-card p-5 rounded-xl flex items-start gap-3 border border-brand-border">
+        <div class="bg-brand-yellow/10 border border-brand-yellow p-2.5 rounded-xl shrink-0">
+          <span class="material-symbols-outlined text-brand-yellow text-xl">verified_user</span>
         </div>
         <div>
-          <h4 class="font-bold text-white mb-1">Tus datos están seguros</h4>
-          <p class="text-sm text-brand-silver leading-relaxed">
-            Tu información está encriptada y será usada únicamente por un asesor certificado de Big Brother para coordinar tu solicitud.
-          </p>
+          <h4 class="font-bold text-white text-sm mb-1">Tus datos están seguros</h4>
+          <p class="text-xs text-brand-silver leading-relaxed">Tu información está encriptada y será usada únicamente por un asesor certificado de Big Brother.</p>
         </div>
       </div>
 
-      <!-- Contacto directo WhatsApp -->
+      <!-- WhatsApp directo -->
       <a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hablar%20con%20un%20asesor%20para%20cotizar%20un%20veh%C3%ADculo.%20%F0%9F%9A%97" target="_blank"
-         class="flex items-center gap-4 p-5 rounded-xl border border-[#25D366]/40 bg-[#25D366]/5 hover:bg-[#25D366]/10 transition-colors">
-        <div class="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shrink-0">
-          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+         class="flex items-center gap-3 p-4 rounded-xl border border-[#25D366]/40 bg-[#25D366]/5 hover:bg-[#25D366]/10 transition-colors">
+        <div class="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </div>
         <div>
           <p class="text-white font-bold text-sm">¿Prefieres escribirnos directo?</p>
           <p class="text-[#25D366] text-xs font-semibold">+51 925 561 660 — Atención inmediata</p>
         </div>
-        <span class="material-symbols-outlined text-brand-silver ml-auto">arrow_forward</span>
+        <span class="material-symbols-outlined text-brand-silver ml-auto text-lg">arrow_forward</span>
       </a>
     </div>
 
-    <!-- Columna Derecha: Formulario -->
+    <!-- Formulario -->
     <div class="lg:col-span-7">
-      <div class="bg-brand-card p-8 md:p-12 rounded-xl border border-brand-border shadow-2xl shadow-brand-yellow/5">
-        <div class="mb-10">
+      <div class="bg-brand-card p-6 md:p-10 rounded-xl border border-brand-border">
+        <div class="mb-8">
           <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest block mb-2">Formulario de contacto</span>
-          <h2 class="text-2xl font-black text-white tracking-tight">Solicitar Cotización y Cita</h2>
-          <div class="w-12 h-1 bg-brand-yellow mt-3"></div>
+          <h2 class="text-xl md:text-2xl font-black text-white">Solicitar Cotización y Cita</h2>
+          <div class="w-10 h-1 bg-brand-yellow mt-3 rounded"></div>
         </div>
 
-        <form class="space-y-6" action="#" method="post">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="flex flex-col gap-2">
+        <form class="space-y-5" action="#" method="post">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
               <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Nombre Completo</label>
-              <input class="w-full px-4 py-3 text-sm" placeholder="Juan Pérez" type="text" required/>
+              <input placeholder="Juan Pérez" type="text" required/>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1.5">
               <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Correo Electrónico</label>
-              <input class="w-full px-4 py-3 text-sm" placeholder="juan@ejemplo.com" type="email" required/>
+              <input placeholder="juan@ejemplo.com" type="email" required/>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="flex flex-col gap-2">
-              <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Número de Teléfono</label>
-              <input class="w-full px-4 py-3 text-sm" placeholder="+51 900 000 000" type="tel"/>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Teléfono</label>
+              <input placeholder="+51 900 000 000" type="tel"/>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1.5">
               <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Auto de Interés</label>
-              <select class="w-full px-4 py-3 text-sm">
+              <select>
                 <option>Porsche Cayenne Turbo GT</option>
                 <option>Toyota Hilux GR-S</option>
                 <option>BMW Serie 3</option>
@@ -171,14 +186,14 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="flex flex-col gap-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
               <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Fecha Preferida</label>
-              <input class="w-full px-4 py-3 text-sm" type="date"/>
+              <input type="date"/>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1.5">
               <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Horario Preferido</label>
-              <select class="w-full px-4 py-3 text-sm">
+              <select>
                 <option>Mañana (09:00 - 12:00)</option>
                 <option>Tarde (14:00 - 17:00)</option>
                 <option>Noche (17:00 - 19:00)</option>
@@ -186,18 +201,18 @@
             </div>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Comentarios Adicionales</label>
-            <textarea class="w-full px-4 py-3 text-sm resize-none" placeholder="Cuéntanos más sobre tus preferencias, presupuesto o el vehículo que buscas..." rows="4"></textarea>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[10px] font-bold uppercase text-brand-silver tracking-wider">Comentarios</label>
+            <textarea placeholder="Cuéntanos sobre tus preferencias, presupuesto o el vehículo que buscas..." rows="4" style="resize:none;"></textarea>
           </div>
 
           <div class="pt-2">
-            <button class="w-full py-5 yellow-btn rounded-full text-lg shadow-lg shadow-brand-yellow/20 hover:shadow-brand-yellow/40 transition-all active:scale-[0.98] flex justify-center items-center gap-3" type="submit">
+            <button class="w-full py-4 yellow-btn rounded-full text-base shadow-lg shadow-brand-yellow/20 hover:shadow-brand-yellow/40 transition-all active:scale-[0.98] flex justify-center items-center gap-2" type="submit">
               Enviar Solicitud
-              <span class="material-symbols-outlined">arrow_forward</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </button>
-            <p class="text-center text-xs text-brand-silver mt-5">
-              Al enviar aceptas nuestros <a href="#" class="text-brand-yellow hover:underline">Términos de Servicio</a> y <a href="#" class="text-brand-yellow hover:underline">Política de Privacidad</a>.
+            <p class="text-center text-xs text-brand-silver mt-4">
+              Al enviar aceptas nuestros <a href="#" class="text-brand-yellow hover:underline">Términos</a> y <a href="#" class="text-brand-yellow hover:underline">Política de Privacidad</a>.
             </p>
           </div>
         </form>
@@ -208,20 +223,20 @@
 </main>
 
 <!-- Footer -->
-<footer class="w-full mt-20 bg-brand-dark border-t border-brand-border">
-  <div class="w-full px-8 py-12 flex flex-col md:flex-row justify-between items-start max-w-7xl mx-auto">
-    <div class="mb-10 md:mb-0">
+<footer class="w-full mt-10 bg-brand-dark border-t border-brand-border">
+  <div class="w-full px-4 md:px-8 py-10 flex flex-col md:flex-row justify-between items-start gap-8 max-w-7xl mx-auto">
+    <div>
       <div class="border-2 border-white p-2 inline-block mb-1">
-        <div class="text-[#FFAA00] font-black text-2xl leading-none tracking-tighter">BIG</div>
-        <div class="text-white font-black text-sm leading-none tracking-tighter">BROTHER</div>
+        <div class="text-[#FFAA00] font-black text-xl leading-none tracking-tighter">BIG</div>
+        <div class="text-white font-black text-xs leading-none tracking-tighter">BROTHER</div>
       </div>
       <p class="text-brand-silver text-xs mt-1">Import & Detailing</p>
     </div>
-    <div class="grid grid-cols-2 gap-12">
+    <div class="grid grid-cols-2 gap-8">
       <div class="flex flex-col gap-3">
         <span class="text-xs font-bold uppercase tracking-widest text-brand-yellow">Empresa</span>
-        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Política de Privacidad</a>
-        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Términos de Servicio</a>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Privacidad</a>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Términos</a>
       </div>
       <div class="flex flex-col gap-3">
         <span class="text-xs font-bold uppercase tracking-widest text-brand-yellow">Explorar</span>
@@ -230,35 +245,41 @@
       </div>
     </div>
   </div>
-  <div class="border-t border-brand-border py-6 text-center">
-    <p class="text-brand-silver text-xs">© 2024 Big Brother Import & Detailing. Todos los derechos reservados.</p>
+  <div class="border-t border-brand-border py-5 text-center">
+    <p class="text-brand-silver text-xs">© 2024 Big Brother Import & Detailing.</p>
   </div>
 </footer>
 
 <!-- Bottom Nav Mobile -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 bg-brand-dark/95 backdrop-blur-xl border-t border-brand-border flex justify-around items-center px-4 py-3">
-  <a href="index.html" class="flex flex-col items-center text-brand-silver">
-    <span class="material-symbols-outlined">home</span>
-    <span class="text-[10px] font-bold uppercase mt-1">Inicio</span>
-  </a>
-  <a href="catalog.html" class="flex flex-col items-center text-brand-silver">
-    <span class="material-symbols-outlined">minor_crash</span>
-    <span class="text-[10px] font-bold uppercase mt-1">Catálogo</span>
-  </a>
-  <a href="#" class="flex flex-col items-center text-brand-silver">
-    <span class="material-symbols-outlined">favorite</span>
-    <span class="text-[10px] font-bold uppercase mt-1">Favoritos</span>
-  </a>
-  <a href="cotizar.html" class="flex flex-col items-center text-brand-yellow scale-110">
-    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">chat</span>
-    <span class="text-[10px] font-bold uppercase mt-1">Contacto</span>
-  </a>
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-brand-dark/95 backdrop-blur-xl border-t border-brand-border">
+  <div class="flex justify-around items-center px-2 py-2">
+    <a href="index.html" class="flex flex-col items-center py-1 px-3 text-brand-silver">
+      <span class="material-symbols-outlined text-xl">home</span>
+      <span class="text-[9px] font-bold uppercase mt-0.5">Inicio</span>
+    </a>
+    <a href="catalog.html" class="flex flex-col items-center py-1 px-3 text-brand-silver">
+      <span class="material-symbols-outlined text-xl">minor_crash</span>
+      <span class="text-[9px] font-bold uppercase mt-0.5">Catálogo</span>
+    </a>
+    <a href="#" class="flex flex-col items-center py-1 px-3 text-brand-silver">
+      <span class="material-symbols-outlined text-xl">favorite</span>
+      <span class="text-[9px] font-bold uppercase mt-0.5">Favoritos</span>
+    </a>
+    <a href="cotizar.html" class="flex flex-col items-center py-1 px-3 text-brand-yellow">
+      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">chat</span>
+      <span class="text-[9px] font-bold uppercase mt-0.5">Contacto</span>
+    </a>
+  </div>
 </nav>
 
 <!-- WhatsApp -->
-<a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hablar%20con%20un%20asesor%20para%20cotizar%20un%20veh%C3%ADculo.%20%F0%9F%9A%97" target="_blank" class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform">
-  <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20comunico%20desde%20su%20p%C3%A1gina%20web%20y%20quisiera%20hablar%20con%20un%20asesor%20para%20cotizar%20un%20veh%C3%ADculo.%20%F0%9F%9A%97" target="_blank" class="fixed bottom-20 md:bottom-8 right-4 md:right-8 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition-transform" style="width:52px;height:52px;">
+  <svg fill="currentColor" height="26" viewBox="0 0 16 16" width="26" xmlns="http://www.w3.org/2000/svg"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.507zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
 </a>
 
+<script>
+  function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+  document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+</script>
 </body>
 </html>
