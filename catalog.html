@@ -39,6 +39,11 @@
   #mobile-menu.open { display: flex; }
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .chip-btn { background: #1c1c1c; border: 1px solid #333; color: #9ca3af; }
+  .chip-btn:hover { border-color: #FFAA00; color: #FFAA00; }
+  .chip-btn.active { background: #FFAA00; border-color: #FFAA00; color: #000; }
+  .car-card { transition: opacity 0.25s, transform 0.25s; }
+  .car-card.hidden-card { display: none; }
 </style>
 </head>
 <body>
@@ -98,24 +103,19 @@
       </div>
     </div>
     <!-- Filter Chips — scroll horizontal en móvil -->
-    <div class="flex gap-2 items-center overflow-x-auto hide-scrollbar pb-1 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap">
-      <button class="flex items-center gap-1.5 px-4 py-2 yellow-btn rounded-full text-xs font-bold shrink-0">
-        <span class="material-symbols-outlined text-sm">tune</span> Filtros
-      </button>
-      <div class="h-5 w-px bg-brand-border mx-1 shrink-0"></div>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">Marca</button>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">Precio</button>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">Año</button>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">SUV</button>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">Sedán</button>
-      <button class="px-4 py-2 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-xs font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors shrink-0">Lujo</button>
+    <div class="flex gap-2 items-center overflow-x-auto hide-scrollbar pb-1 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap" id="filter-chips">
+      <button onclick="filterCars('todos')" data-filter="todos" class="chip-btn active px-4 py-2 rounded-full text-xs font-bold shrink-0 transition-all">Todos</button>
+      <button onclick="filterCars('suv')" data-filter="suv" class="chip-btn px-4 py-2 rounded-full text-xs font-bold shrink-0 transition-all">SUV</button>
+      <button onclick="filterCars('sedan')" data-filter="sedan" class="chip-btn px-4 py-2 rounded-full text-xs font-bold shrink-0 transition-all">Sedán</button>
+      <button onclick="filterCars('pickup')" data-filter="pickup" class="chip-btn px-4 py-2 rounded-full text-xs font-bold shrink-0 transition-all">Pickup</button>
+      <button onclick="filterCars('lujo')" data-filter="lujo" class="chip-btn px-4 py-2 rounded-full text-xs font-bold shrink-0 transition-all">Lujo</button>
     </div>
   </section>
 
   <!-- Grid de Autos -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="pickup" data-name="toyota hilux gr-s">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Toyota Hilux GR-S" src="images/img05.jpeg"/>
         <div class="absolute top-3 right-3 bg-brand-yellow text-black px-2 py-1 rounded text-[9px] font-black uppercase">Nuevo</div>
@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="sedan lujo" data-name="bmw serie 3">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="BMW Serie 3" src="images/img06.jpeg"/>
       </div>
@@ -162,7 +162,7 @@
       </div>
     </div>
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="suv" data-name="jeep wrangler rubicon">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Jeep Wrangler Rubicon" src="images/img07.jpeg"/>
         <div class="absolute top-3 right-3 bg-white text-black px-2 py-1 rounded text-[9px] font-black uppercase">Certificado</div>
@@ -186,7 +186,7 @@
       </div>
     </div>
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="sedan lujo" data-name="audi e-tron gt">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Audi e-tron GT" src="images/img08.jpeg"/>
       </div>
@@ -209,7 +209,7 @@
       </div>
     </div>
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="suv" data-name="mazda cx-5">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Mazda CX-5" src="images/img09.jpeg"/>
       </div>
@@ -232,7 +232,7 @@
       </div>
     </div>
 
-    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+    <div class="car-card bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300" data-category="pickup" data-name="ford ranger xlt">
       <div class="relative aspect-[16/10] overflow-hidden">
         <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Ford Ranger XLT" src="images/img10.jpeg"/>
       </div>
@@ -300,9 +300,9 @@
       <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">minor_crash</span>
       <span class="text-[9px] font-bold uppercase mt-0.5">Catálogo</span>
     </a>
-    <a href="#" class="flex flex-col items-center py-1 px-3 text-brand-silver">
-      <span class="material-symbols-outlined text-xl">favorite</span>
-      <span class="text-[9px] font-bold uppercase mt-0.5">Favoritos</span>
+    <a href="detalle.html" class="flex flex-col items-center py-1 px-3 text-brand-silver">
+      <span class="material-symbols-outlined text-xl">info</span>
+      <span class="text-[9px] font-bold uppercase mt-0.5">Detalle</span>
     </a>
     <a href="cotizar.html" class="flex flex-col items-center py-1 px-3 text-brand-silver">
       <span class="material-symbols-outlined text-xl">chat</span>
@@ -321,6 +321,30 @@
     document.getElementById('mobile-menu').classList.toggle('open');
   }
   document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+
+  let activeFilter = 'todos';
+  let searchQuery = '';
+
+  function filterCars(category) {
+    activeFilter = category;
+    document.querySelectorAll('.chip-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === category);
+    });
+    applyFilters();
+  }
+
+  function applyFilters() {
+    document.querySelectorAll('.car-card').forEach(card => {
+      const matchCat = activeFilter === 'todos' || card.dataset.category.includes(activeFilter);
+      const matchSearch = card.dataset.name.includes(searchQuery.toLowerCase());
+      card.classList.toggle('hidden-card', !(matchCat && matchSearch));
+    });
+  }
+
+  document.querySelector('input[placeholder]').addEventListener('input', function() {
+    searchQuery = this.value;
+    applyFilters();
+  });
 </script>
 </body>
 </html>
