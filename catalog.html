@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catálogo | BIG BROTHER Import & Detailing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "brand-yellow": "#FFAA00",
+          "brand-black": "#0a0a0a",
+          "brand-dark": "#141414",
+          "brand-card": "#1c1c1c",
+          "brand-gray": "#2a2a2a",
+          "brand-silver": "#9ca3af",
+          "brand-border": "#333333",
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; min-height: max(884px, 100dvh); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .logo-box { border: 2px solid #fff; padding: 4px 8px; display: inline-block; line-height: 1; }
+  .logo-big { color: #FFAA00; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.05em; display: block; }
+  .logo-brother { color: #fff; font-weight: 900; font-size: 0.85rem; letter-spacing: -0.03em; display: block; }
+  .logo-tagline { color: #9ca3af; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.05em; margin-top: 2px; }
+  .yellow-btn { background: #FFAA00; color: #000; font-weight: 800; }
+  .yellow-btn:hover { background: #e69900; }
+  .outline-btn { border: 2px solid #FFAA00; color: #FFAA00; font-weight: 700; }
+  .outline-btn:hover { background: #FFAA00; color: #000; }
+</style>
+</head>
+<body>
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-brand-black/90 backdrop-blur-lg border-b border-brand-border">
+  <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="logo-box">
+        <span class="logo-big">BIG</span>
+        <span class="logo-brother">BROTHER</span>
+      </div>
+      <span class="logo-tagline hidden sm:block">Import & Detailing</span>
+    </a>
+    <nav class="hidden md:flex gap-6 items-center">
+      <a href="index.html" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Inicio</a>
+      <a href="catalog.html" class="text-brand-yellow font-bold text-sm border-b-2 border-brand-yellow pb-0.5">Catálogo</a>
+      <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Servicios</a>
+      <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Vende tu Auto</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-white">search</span>
+      <a href="cotizar.html" class="hidden md:block yellow-btn px-5 py-2 rounded-full text-sm transition-colors">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-24 pb-32 px-6 max-w-screen-2xl mx-auto">
+
+  <!-- Header Editorial -->
+  <section class="mb-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
+      <div class="max-w-2xl">
+        <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-widest mb-2 block">Selección Curada</span>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-2">
+          Encuentra tu próxima<br/><span class="text-brand-yellow">obra maestra.</span>
+        </h1>
+      </div>
+      <div class="w-full md:w-96">
+        <div class="relative">
+          <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-brand-silver">search</span>
+          </div>
+          <input class="w-full bg-brand-card border border-brand-border text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-brand-yellow focus:border-brand-yellow outline-none transition-all placeholder-brand-silver" placeholder="Buscar por modelo o marca..."/>
+        </div>
+      </div>
+    </div>
+    <!-- Filter Chips -->
+    <div class="flex flex-wrap gap-3 items-center">
+      <button class="flex items-center gap-2 px-5 py-2.5 yellow-btn rounded-full text-sm">
+        <span class="material-symbols-outlined text-sm">tune</span> Filtros
+      </button>
+      <div class="h-6 w-px bg-brand-border mx-1"></div>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">Marca</button>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">Precio</button>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">Año</button>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">SUV</button>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">Sedán</button>
+      <button class="px-5 py-2.5 bg-brand-card border border-brand-border text-brand-silver rounded-lg text-sm font-semibold hover:border-brand-yellow hover:text-brand-yellow transition-colors">Lujo</button>
+    </div>
+  </section>
+
+  <!-- Grid de Autos -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Card 1 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Toyota Hilux GR-S" src="images/img05.jpeg"/>
+        <div class="absolute top-4 right-4 bg-brand-yellow text-black px-3 py-1 rounded text-[10px] font-black uppercase">Nuevo Ingreso</div>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">Toyota Hilux GR-S</h3>
+            <p class="text-xs text-brand-silver font-medium">Edición 2024 • Automático</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$48,500</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">0 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">local_gas_station</span>
+            <span class="text-xs font-semibold">Diésel</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="BMW Serie 3" src="images/img06.jpeg"/>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">BMW Serie 3</h3>
+            <p class="text-xs text-brand-silver font-medium">Modelo 2023 • Sport Line</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$42,900</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">12,400 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">local_gas_station</span>
+            <span class="text-xs font-semibold">Gasolina</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Jeep Wrangler Rubicon" src="images/img07.jpeg"/>
+        <div class="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded text-[10px] font-black uppercase">Certificado</div>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">Jeep Wrangler Rubicon</h3>
+            <p class="text-xs text-brand-silver font-medium">Modelo 2022 • 4x4 Unlimited</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$55,000</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">25,800 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">local_gas_station</span>
+            <span class="text-xs font-semibold">Gasolina</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Audi e-tron GT" src="images/img08.jpeg"/>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">Audi e-tron GT</h3>
+            <p class="text-xs text-brand-silver font-medium">Modelo 2024 • Eléctrico</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$102,000</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">0 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">electric_car</span>
+            <span class="text-xs font-semibold">Eléctrico</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Mazda CX-5" src="images/img09.jpeg"/>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">Mazda CX-5</h3>
+            <p class="text-xs text-brand-silver font-medium">Modelo 2021 • Grand Touring</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$28,900</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">38,500 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">local_gas_station</span>
+            <span class="text-xs font-semibold">Gasolina</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-all duration-300">
+      <div class="relative aspect-[16/10] overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Ford Ranger XLT" src="images/img10.jpeg"/>
+      </div>
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h3 class="text-lg font-bold text-white">Ford Ranger XLT</h3>
+            <p class="text-xs text-brand-silver font-medium">Modelo 2023 • 4x4 Diésel</p>
+          </div>
+          <span class="text-xl font-black text-brand-yellow">$35,500</span>
+        </div>
+        <div class="flex items-center gap-5 mb-6 text-brand-silver">
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">speed</span>
+            <span class="text-xs font-semibold">15,200 km</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-base text-brand-yellow">local_gas_station</span>
+            <span class="text-xs font-semibold">Diésel</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 pt-4 border-t border-brand-border">
+          <a href="detalle.html" class="py-2.5 px-4 border border-brand-border text-brand-silver rounded-full text-sm font-bold hover:border-brand-yellow hover:text-brand-yellow transition-colors text-center">Ver detalle</a>
+          <a href="cotizar.html" class="py-2.5 px-4 yellow-btn rounded-full text-sm text-center transition-colors">Cotizar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-20 bg-brand-dark border-t border-brand-border">
+  <div class="w-full px-8 py-16 flex flex-col md:flex-row justify-between items-start max-w-7xl mx-auto">
+    <div class="max-w-sm mb-12 md:mb-0">
+      <div class="border-2 border-white p-2 inline-block mb-1">
+        <div class="text-[#FFAA00] font-black text-2xl leading-none tracking-tighter">BIG</div>
+        <div class="text-white font-black text-sm leading-none tracking-tighter">BROTHER</div>
+      </div>
+      <p class="text-brand-silver text-xs mt-1 mb-4">Import & Detailing</p>
+      <p class="text-brand-silver text-sm leading-relaxed">Redefiniendo la experiencia automotriz en Perú con transparencia, lujo y precisión.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+      <div>
+        <h4 class="font-bold mb-6 text-xs uppercase tracking-widest text-brand-yellow">Navegación</h4>
+        <ul class="space-y-3">
+          <li><a class="text-brand-silver hover:text-white transition-colors text-sm" href="index.html">Inicio</a></li>
+          <li><a class="text-brand-yellow font-semibold text-sm" href="catalog.html">Catálogo</a></li>
+          <li><a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6 text-xs uppercase tracking-widest text-brand-yellow">Legal</h4>
+        <ul class="space-y-3">
+          <li><a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Privacidad</a></li>
+          <li><a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Términos</a></li>
+          <li><a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Empleos</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <h4 class="font-bold mb-6 text-xs uppercase tracking-widest text-brand-yellow">Newsletter</h4>
+        <div class="flex">
+          <input class="bg-brand-card border border-brand-border text-white rounded-l-lg py-3 px-4 w-full text-sm placeholder-brand-silver focus:outline-none focus:border-brand-yellow" placeholder="Tu email"/>
+          <button class="bg-brand-yellow px-4 rounded-r-lg hover:bg-yellow-500 transition-colors"><span class="material-symbols-outlined text-black">chevron_right</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-brand-border py-6 px-8 text-center text-xs text-brand-silver">
+    © 2024 Big Brother Import & Detailing. Todos los derechos reservados.
+  </div>
+</footer>
+
+<!-- Bottom NavBar Mobile -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-brand-dark/95 backdrop-blur-xl border-t border-brand-border">
+  <div class="flex justify-around items-center px-4 py-3">
+    <a href="index.html" class="flex flex-col items-center text-brand-silver">
+      <span class="material-symbols-outlined">home</span>
+      <span class="text-[10px] font-bold uppercase mt-1">Inicio</span>
+    </a>
+    <a href="catalog.html" class="flex flex-col items-center text-brand-yellow scale-110">
+      <span class="material-symbols-outlined">minor_crash</span>
+      <span class="text-[10px] font-bold uppercase mt-1">Catálogo</span>
+    </a>
+    <a href="#" class="flex flex-col items-center text-brand-silver">
+      <span class="material-symbols-outlined">favorite</span>
+      <span class="text-[10px] font-bold uppercase mt-1">Favoritos</span>
+    </a>
+    <a href="cotizar.html" class="flex flex-col items-center text-brand-silver">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="text-[10px] font-bold uppercase mt-1">Contacto</span>
+    </a>
+  </div>
+</nav>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20comunico%20desde%20su%20p%C3%A1gina%20web.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20veh%C3%ADculos%20disponibles%20%F0%9F%9A%97" target="_blank" class="fixed bottom-24 md:bottom-8 right-6 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
+  <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>

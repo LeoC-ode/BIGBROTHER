@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle del Auto | BIG BROTHER Import & Detailing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "brand-yellow": "#FFAA00",
+          "brand-black": "#0a0a0a",
+          "brand-dark": "#141414",
+          "brand-card": "#1c1c1c",
+          "brand-gray": "#2a2a2a",
+          "brand-silver": "#9ca3af",
+          "brand-border": "#333333",
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; min-height: max(884px, 100dvh); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .logo-box { border: 2px solid #fff; padding: 4px 8px; display: inline-block; line-height: 1; }
+  .logo-big { color: #FFAA00; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.05em; display: block; }
+  .logo-brother { color: #fff; font-weight: 900; font-size: 0.85rem; letter-spacing: -0.03em; display: block; }
+  .logo-tagline { color: #9ca3af; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.05em; margin-top: 2px; }
+  .yellow-btn { background: #FFAA00; color: #000; font-weight: 800; }
+  .yellow-btn:hover { background: #e69900; }
+  .outline-btn { border: 2px solid #FFAA00; color: #FFAA00; font-weight: 700; }
+  .outline-btn:hover { background: #FFAA00; color: #000; }
+</style>
+</head>
+<body>
+
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-brand-black/90 backdrop-blur-lg border-b border-brand-border">
+  <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="logo-box">
+        <span class="logo-big">BIG</span>
+        <span class="logo-brother">BROTHER</span>
+      </div>
+      <span class="logo-tagline hidden sm:block">Import & Detailing</span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Inicio</a>
+      <a href="catalog.html" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Catálogo</a>
+      <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Financiamiento</a>
+      <a href="#" class="text-brand-silver font-medium hover:text-white transition-colors text-sm">Vende tu Auto</a>
+    </div>
+    <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-white">search</span>
+  </div>
+</nav>
+
+<main class="pt-24 pb-32">
+
+  <!-- Galería -->
+  <section class="max-w-screen-2xl mx-auto px-6 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+      <div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-brand-border">
+        <img class="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700" alt="Porsche Cayenne Turbo GT" src="images/img11.jpeg"/>
+        <div class="absolute bottom-4 left-4 flex gap-2">
+          <button class="bg-brand-black/80 backdrop-blur-sm p-2 rounded-full border border-brand-border hover:border-brand-yellow transition-colors"><span class="material-symbols-outlined text-white">chevron_left</span></button>
+          <button class="bg-brand-black/80 backdrop-blur-sm p-2 rounded-full border border-brand-border hover:border-brand-yellow transition-colors"><span class="material-symbols-outlined text-white">chevron_right</span></button>
+        </div>
+      </div>
+      <div class="md:col-span-4 flex flex-col gap-4">
+        <div class="overflow-hidden rounded-xl border border-brand-border flex-1">
+          <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Interior" src="images/img12.jpeg"/>
+        </div>
+        <div class="overflow-hidden rounded-xl border border-brand-border flex-1">
+          <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Trasera" src="images/img13.jpeg"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info del Producto -->
+  <section class="max-w-screen-2xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+    <div class="lg:col-span-2">
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 border-b border-brand-border pb-8 mb-8">
+        <div>
+          <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block">Disponible Ahora</span>
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">Porsche Cayenne<br/>Turbo GT</h1>
+          <p class="text-brand-silver mt-2 font-medium">2024 • 0 km • Automática</p>
+        </div>
+        <div class="flex flex-col items-start md:items-end shrink-0">
+          <span class="text-brand-silver text-xs font-bold uppercase tracking-widest">Precio</span>
+          <div class="text-5xl font-black text-brand-yellow tracking-tighter">$182,500</div>
+          <span class="text-brand-silver text-xs font-medium mt-1">IGV Incluido</span>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <h3 class="text-xl font-bold text-white mb-3">La Cima del Rendimiento SUV</h3>
+        <p class="text-brand-silver leading-relaxed text-lg">
+          El Cayenne Turbo GT representa una obra maestra de ingeniería automotriz, combinando la potencia bruta de un superdeportivo con la versatilidad de un SUV de lujo. Seleccionado por Big Brother para quienes exigen precisión y confort en igual medida.
+        </p>
+      </div>
+
+      <!-- Ficha Técnica -->
+      <div class="bg-brand-card rounded-xl p-8 border border-brand-border">
+        <h3 class="text-lg font-black text-white mb-8 flex items-center gap-3">
+          <span class="material-symbols-outlined text-brand-yellow">tune</span>
+          Ficha Técnica
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Motor</span>
+            <span class="text-base font-bold text-white">V8 Twin-Turbo</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Potencia</span>
+            <span class="text-base font-bold text-brand-yellow">631 HP</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Combustible</span>
+            <span class="text-base font-bold text-white">Gasolina</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Transmisión</span>
+            <span class="text-base font-bold text-white">8-Speed Tiptronic</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Tracción</span>
+            <span class="text-base font-bold text-white">AWD</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">0-100 km/h</span>
+            <span class="text-base font-bold text-brand-yellow">3.3 seg</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Kilometraje</span>
+            <span class="text-base font-bold text-white">0 km</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-silver">Estado</span>
+            <span class="text-base font-bold text-white">Nuevo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Sticky de Conversión -->
+    <div class="lg:col-span-1">
+      <div class="sticky top-24 bg-brand-card rounded-xl p-8 border border-brand-border shadow-2xl shadow-brand-yellow/5">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-full bg-brand-yellow flex items-center justify-center">
+            <span class="material-symbols-outlined text-black">support_agent</span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-white">Asesor Big Brother</p>
+            <p class="text-xs text-brand-silver">Import & Detailing Premium</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <a href="cotizar.html" class="w-full yellow-btn py-4 px-6 rounded-full flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-lg shadow-brand-yellow/20 text-sm">
+            Cotizar este auto
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          <a href="cotizar.html" class="w-full outline-btn py-4 px-6 rounded-full flex items-center justify-center gap-3 hover:bg-brand-yellow hover:text-black transition-all text-sm">
+            Reservar cita para verlo
+            <span class="material-symbols-outlined text-sm">calendar_today</span>
+          </a>
+          <a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20interesa%20el%20Porsche%20Cayenne%20Turbo%20GT%202024.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%20%F0%9F%9A%97" target="_blank" class="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-full border border-[#25D366] text-[#25D366] font-bold text-sm hover:bg-[#25D366] hover:text-white transition-all">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+        <div class="mt-6 pt-6 border-t border-brand-border">
+          <p class="text-xs text-brand-silver text-center leading-relaxed">
+            Financiamiento disponible desde 10% de inicial. Sujeto a evaluación crediticia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehículos Similares -->
+  <section class="max-w-screen-2xl mx-auto px-6 mb-20">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block">Selección Curada</span>
+        <h2 class="text-3xl font-black text-white">Vehículos <span class="text-brand-yellow">Similares</span></h2>
+      </div>
+      <a class="text-brand-yellow font-bold flex items-center gap-2 group text-sm" href="catalog.html">
+        Ver Catálogo
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-colors">
+        <div class="relative aspect-[16/10] overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Audi RS Q8" src="images/img14.jpeg"/>
+          <div class="absolute top-3 left-3"><span class="bg-brand-yellow text-black text-[10px] font-black uppercase px-2 py-1 rounded">Nuevo Ingreso</span></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-lg font-bold text-white mb-1">Audi RS Q8</h4>
+          <p class="text-xs text-brand-silver mb-4">2023 • 12,400 km • V8</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-black text-brand-yellow">$154,900</span>
+            <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-brand-yellow transition-colors">favorite</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-colors">
+        <div class="relative aspect-[16/10] overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="BMW X7 M60i" src="images/img15.jpeg"/>
+        </div>
+        <div class="p-5">
+          <h4 class="text-lg font-bold text-white mb-1">BMW X7 M60i</h4>
+          <p class="text-xs text-brand-silver mb-4">2024 • 0 km • Híbrido</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-black text-brand-yellow">$168,000</span>
+            <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-brand-yellow transition-colors">favorite</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-brand-card rounded-xl overflow-hidden group border border-brand-border hover:border-brand-yellow transition-colors">
+        <div class="relative aspect-[16/10] overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Range Rover Sport SV" src="images/img16.jpeg"/>
+        </div>
+        <div class="p-5">
+          <h4 class="text-lg font-bold text-white mb-1">Range Rover Sport SV</h4>
+          <p class="text-xs text-brand-silver mb-4">2024 • 0 km • Gasolina</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-black text-brand-yellow">$175,000</span>
+            <span class="material-symbols-outlined text-brand-silver cursor-pointer hover:text-brand-yellow transition-colors">favorite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-brand-dark border-t border-brand-border">
+  <div class="w-full px-8 py-12 flex flex-col md:flex-row justify-between items-start max-w-7xl mx-auto">
+    <div class="mb-10 md:mb-0">
+      <div class="border-2 border-white p-2 inline-block mb-1">
+        <div class="text-[#FFAA00] font-black text-2xl leading-none tracking-tighter">BIG</div>
+        <div class="text-white font-black text-sm leading-none tracking-tighter">BROTHER</div>
+      </div>
+      <p class="text-brand-silver text-xs mt-1">Import & Detailing</p>
+    </div>
+    <div class="grid grid-cols-2 gap-12">
+      <div class="flex flex-col gap-3">
+        <h5 class="font-bold text-brand-yellow uppercase tracking-widest text-xs">Recursos</h5>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Política de Privacidad</a>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Términos de Servicio</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h5 class="font-bold text-brand-yellow uppercase tracking-widest text-xs">Visítanos</h5>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Concesionarios</a>
+        <a class="text-brand-silver hover:text-white transition-colors text-sm" href="#">Showrooms</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-brand-border py-6 text-center">
+    <p class="text-brand-silver text-xs">© 2024 Big Brother Import & Detailing.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/51925561660?text=%C2%A1Hola%20Big%20Brother!%20Me%20comunico%20desde%20su%20p%C3%A1gina%20web.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20veh%C3%ADculos%20disponibles%20%F0%9F%9A%97" target="_blank" class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+  <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- Bottom Nav Mobile -->
+<div class="md:hidden fixed bottom-0 w-full z-50 bg-brand-dark/95 backdrop-blur-xl border-t border-brand-border flex justify-around items-center px-4 py-3">
+  <a href="index.html" class="flex flex-col items-center text-brand-silver">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-bold uppercase mt-1">Inicio</span>
+  </a>
+  <a href="catalog.html" class="flex flex-col items-center text-brand-yellow scale-110">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">minor_crash</span>
+    <span class="text-[10px] font-bold uppercase mt-1">Catálogo</span>
+  </a>
+  <a href="#" class="flex flex-col items-center text-brand-silver">
+    <span class="material-symbols-outlined">favorite</span>
+    <span class="text-[10px] font-bold uppercase mt-1">Favoritos</span>
+  </a>
+  <a href="cotizar.html" class="flex flex-col items-center text-brand-silver">
+    <span class="material-symbols-outlined">chat</span>
+    <span class="text-[10px] font-bold uppercase mt-1">Contacto</span>
+  </a>
+</div>
+
+</body>
+</html>
